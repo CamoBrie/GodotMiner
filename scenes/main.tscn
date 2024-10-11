@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccn24axyenyeb"]
+
+[ext_resource type="PackedScene" uid="uid://cjkrb4mc3cf2o" path="res://scenes/player.tscn" id="1_7xnlr"]
+[ext_resource type="PackedScene" uid="uid://q26s4x7p2hw" path="res://scenes/block_spawner.tscn" id="2_1yfic"]
+[ext_resource type="Script" path="res://scripts/PlayerData.gd" id="2_bjgk3"]
+[ext_resource type="Resource" uid="uid://ddi7j4carc1t1" path="res://resources/blocks/stone.tres" id="4_q7ba0"]
+[ext_resource type="Resource" uid="uid://dfmv68wj2a8k4" path="res://resources/blocks/obsidian.tres" id="5_q47o7"]
+[ext_resource type="PackedScene" uid="uid://wvnp6nmk3vef" path="res://scenes/inventory.tscn" id="6_j1kb0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcit6"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jkl3v"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="Environment" id="Environment_pwae7"]
+
+[node name="root" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_7xnlr")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89054, 0)
+
+[node name="PlayerData" type="Node3D" parent="Player"]
+script = ExtResource("2_bjgk3")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_tcit6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_jkl3v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pwae7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.72357, 0.690251, 0, -0.690251, 0.72357, 0, 3.88467, 4)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.562444, -0.0389498, -0.825917, 0.749727, 0.445241, 0.489561, 0.348664, -0.894563, 0.279625, 0, 9.4565, 10.9822)
+shadow_enabled = true
+
+[node name="BlockSpawner" parent="." instance=ExtResource("2_1yfic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7.85014)
+block_spawn_data = ExtResource("4_q7ba0")
+
+[node name="BlockSpawner2" parent="." instance=ExtResource("2_1yfic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 9.32)
+block_spawn_data = ExtResource("5_q47o7")
+
+[node name="Inventory" parent="." instance=ExtResource("6_j1kb0")]
+visible = false

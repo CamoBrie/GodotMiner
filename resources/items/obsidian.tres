@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LootItem" load_steps=2 format=3 uid="uid://b2mblle3ptv8n"]
+
+[ext_resource type="Script" path="res://scripts/LootItem.gd" id="1_2bwhf"]
+
+[resource]
+script = ExtResource("1_2bwhf")
+resource = "obsidian"
+weight = 1
+min_roll = 1
+max_roll = 1

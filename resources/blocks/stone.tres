@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BlockSpawnData" load_steps=6 format=3 uid="uid://ddi7j4carc1t1"]
+
+[ext_resource type="Script" path="res://scripts/Blocks/BlockSpawnData.gd" id="1_6tbn6"]
+[ext_resource type="Resource" uid="uid://ceouw25qg12h4" path="res://resources/items/stone.tres" id="1_rdt2e"]
+[ext_resource type="Script" path="res://scripts/LootItem.gd" id="2_n6lka"]
+
+[sub_resource type="Resource" id="Resource_kielt"]
+script = ExtResource("2_n6lka")
+resource = "hard_stone"
+weight = 1
+min_roll = 1
+max_roll = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w33v0"]
+albedo_color = Color(0.533037, 0.533037, 0.533037, 1)
+
+[resource]
+script = ExtResource("1_6tbn6")
+health = 10.0
+material = SubResource("StandardMaterial3D_w33v0")
+loot_table = Array[ExtResource("2_n6lka")]([ExtResource("1_rdt2e"), SubResource("Resource_kielt")])

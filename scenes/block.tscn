@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwr6ap0bl8xb"]
+
+[ext_resource type="Script" path="res://scripts/Blocks/Block.gd" id="1_ktumv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmnmq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_peeco"]
+
+[node name="Block" type="Node3D"]
+script = ExtResource("1_ktumv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_lmnmq")
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_peeco")
+
+[node name="Health_Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776539, 0)
+visible = false
+billboard = 1
+
+[node name="Timer" type="Timer" parent="Health_Label"]
+wait_time = 5.0
+one_shot = true

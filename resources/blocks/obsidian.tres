@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BlockSpawnData" load_steps=4 format=3 uid="uid://dfmv68wj2a8k4"]
+
+[ext_resource type="Resource" uid="uid://b2mblle3ptv8n" path="res://resources/items/obsidian.tres" id="1_u702y"]
+[ext_resource type="Script" path="res://scripts/Blocks/BlockSpawnData.gd" id="2_spclw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f414"]
+albedo_color = Color(0.162066, 0.162066, 0.162066, 1)
+
+[resource]
+script = ExtResource("2_spclw")
+health = 1000.0
+material = SubResource("StandardMaterial3D_0f414")
+loot_table = Array[Resource("res://scripts/LootItem.gd")]([ExtResource("1_u702y")])
