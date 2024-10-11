@@ -17,7 +17,7 @@ func spawn_block(bsd : BlockSpawnData):
 
   # Add to scene
   add_child(block)
-  block.global_transform.origin = global_transform.origin
+  block.global_transform.origin = global_transform.origin + block.transform.origin
 
 func on_block_destroyed():
   # Respawn the block after a delay
