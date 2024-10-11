@@ -56,8 +56,6 @@ func get_loot():
 	for i in range(rolls):
 		roll_loot(loot, total_weight)
 
-	print(rolls)
-
 	# add loot to player
 	for loot_item in loot:
 		var amount = (randi() % (loot_item.max_roll - loot_item.min_roll + 1)) + loot_item.min_roll
