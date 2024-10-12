@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjkrb4mc3cf2o"]
+[gd_scene load_steps=3 format=3 uid="uid://cjkrb4mc3cf2o"]
 
 [ext_resource type="Script" path="res://scripts/CharacterController.gd" id="1_h1lp7"]
-[ext_resource type="Texture2D" uid="uid://b0ogfsaxm7dqm" path="res://images/pickaxe.png" id="2_cm032"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dy5sm"]
 size = Vector3(1, 2, 1)
@@ -14,8 +13,3 @@ shape = SubResource("BoxShape3D_dy5sm")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1054.44, 567.25)
-scale = Vector2(1.47558, 1.3164)
-texture = ExtResource("2_cm032")

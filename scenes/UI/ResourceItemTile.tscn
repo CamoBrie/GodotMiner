@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://chf3s58exnfhl"]
+
+[ext_resource type="Script" path="res://scripts/UI/ResourceItemTile.gd" id="1_7p3uh"]
+
+[node name="ResourceItemTile" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_7p3uh")
+
+[node name="ResourceColor" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="ResourceAmount" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 128.0
+offset_bottom = 128.0
+bbcode_enabled = true
+
+[node name="ResourceName" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 40.0
+bbcode_enabled = true

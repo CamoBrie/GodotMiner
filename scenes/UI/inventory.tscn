@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://wvnp6nmk3vef"]
+
+[ext_resource type="Script" path="res://scripts/UI/inventory.gd" id="1_xtahl"]
+
+[sub_resource type="SystemFont" id="SystemFont_2tjsc"]
+
+[sub_resource type="Theme" id="Theme_lc888"]
+default_font = SubResource("SystemFont_2tjsc")
+default_font_size = 36
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xtahl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -195.0
+offset_right = 195.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.227451, 0.227451, 0.227451, 0.345098)
+
+[node name="ResourceItems" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -190.5
+offset_right = 190.5
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="InventoryText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_right = 91.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme = SubResource("Theme_lc888")
+text = "Inventory"
+scroll_active = false

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LootItem" load_steps=2 format=3 uid="uid://vbv7ymffmst3"]
+
+[ext_resource type="Script" path="res://scripts/LootItem.gd" id="1_rlm12"]
+
+[resource]
+script = ExtResource("1_rlm12")
+resource = "hard_stone"
+color = Color(0.288518, 0.288518, 0.288518, 1)
+weight = 1
+min_roll = 1
+max_roll = 1

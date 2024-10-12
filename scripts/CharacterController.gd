@@ -7,9 +7,6 @@ func _physics_process(delta):
 	velocity.y += -gravity * delta
 	move_and_slide()
 
-	if Input.is_action_pressed("jump") && is_on_floor():
-		velocity.y = PlayerData.jump_height / 20
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -21,7 +18,9 @@ func _unhandled_input(event):
 	if is_on_floor():
 		velocity.x = movement_dir.x * PlayerData.speed / 20
 		velocity.z = movement_dir.z * PlayerData.speed / 20
-
+	
+		if Input.is_action_pressed("jump"):
+			velocity.y = PlayerData.jump_height / 20
 
 	# Rotate the player and the camera
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -42,22 +41,25 @@ func _unhandled_input(event):
 		# mine a block
 		mine_block()
 
+# mine a block
 func mine_block():
+	var block = cast_player_ray()
 
-	# Cast a ray from the camera to the front
-	var ray_length = 5
-	var ray_start = $Camera3D.global_transform.origin
-	var ray_end = ray_start - $Camera3D.global_transform.basis.z * ray_length
+	# Check if the collider is a block
+	if block is Block:
+		block.mine()
 
+# cast a ray from the player to the front
+func cast_player_ray():
+	var ray_length = PlayerData.reach / 20
+	var ray_start = global_transform.origin
+	var ray_end = ray_start - global_transform.basis.z * ray_length
 
 	var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end, 2)
 	query.collide_with_areas = true
 
 	var result = get_world_3d().direct_space_state.intersect_ray(query)
 	if result:
-		var block = result.collider.owner
-
-		# Check if the collider is a block
-		if block is Block:
-			block.mine()
+		return result.collider.owner
+	return null
 

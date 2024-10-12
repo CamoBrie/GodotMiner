@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/PlayerData.gd" id="2_bjgk3"]
 [ext_resource type="Resource" uid="uid://ddi7j4carc1t1" path="res://resources/blocks/stone.tres" id="4_q7ba0"]
 [ext_resource type="Resource" uid="uid://dfmv68wj2a8k4" path="res://resources/blocks/obsidian.tres" id="5_q47o7"]
-[ext_resource type="PackedScene" uid="uid://wvnp6nmk3vef" path="res://scenes/inventory.tscn" id="6_j1kb0"]
+[ext_resource type="PackedScene" uid="uid://wvnp6nmk3vef" path="res://scenes/UI/inventory.tscn" id="6_j1kb0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcit6"]
 size = Vector3(60, 2, 60)

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_6m1pw")
 resource = "stone"
+color = Color(0.513233, 0.513233, 0.513233, 1)
 weight = 99
 min_roll = 1
 max_roll = 1
