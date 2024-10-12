@@ -41,19 +41,18 @@ func _unhandled_input(event):
 		# mine a block
 		mine_block()
 
-# mine a block
 func mine_block():
+
 	var block = cast_player_ray()
 
 	# Check if the collider is a block
 	if block is Block:
 		block.mine()
 
-# cast a ray from the player to the front
 func cast_player_ray():
 	var ray_length = PlayerData.reach / 20
-	var ray_start = global_transform.origin
-	var ray_end = ray_start - global_transform.basis.z * ray_length
+	var ray_start = $Camera3D.global_transform.origin
+	var ray_end = ray_start - $Camera3D.global_transform.basis.z * ray_length
 
 	var query = PhysicsRayQueryParameters3D.create(ray_start, ray_end, 2)
 	query.collide_with_areas = true
